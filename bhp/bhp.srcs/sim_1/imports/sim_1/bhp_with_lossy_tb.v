@@ -128,7 +128,7 @@ module bhp_with_lossy_tb;
 
     // Instantiate the Unit Under Test (UUT)
     bhp_with_lossy #(
-        .QID_WIDTH (QID_WIDTH)   // <--- 关键：在这里传入参数
+        .QID_WIDTH (QID_WIDTH)   
     ) uut (
         .clk(clk),
         .rstn(rstn),
@@ -894,6 +894,12 @@ task zzt_testcase;
     input [127:0]  task_data_in;
     input integer  x;
     input [255:0]  task_out;
+	
+	
+	// QID1 Define a local variable to temporarily store the expected ID to be received in this test round.
+    reg [QID_WIDTH-1:0] exp_qid;
+	reg [QID_WIDTH-1:0] noise_qid;
+	
     begin
         // $display("Test case %03d", index);
         zzt_testcase_cnt <= 0;
@@ -906,6 +912,13 @@ task zzt_testcase;
         // i_signed = 0 => U 6:8;  7:16;  8:32;   9:64;  10:128
         i_size   <= task_size_in;
         i_signed <= task_signed_in;
+		
+		
+		//QID2  directly use the current test number 'index' as the QID
+        i_qid    <= index[QID_WIDTH-1:0]; 
+        exp_qid   = index[QID_WIDTH-1:0]; 
+		
+		
         if (reverse == 1) begin
             i_a   <= task_data_in;
             // $display("not reverse_part opreation");
@@ -916,6 +929,14 @@ task zzt_testcase;
         out      <= task_out;
         i_vld <= 1;#10;
         i_vld <= 0;
+		
+		
+		//QID3 make noise 
+		noise_qid = ~exp_qid; 
+        i_qid <= noise_qid;  
+		$display("INFO: Injecting Noise QID: %h (Expected kept: %h)", noise_qid, exp_qid);
+		
+		
         i_lvs_rdy <= 1;
         wait(cur_state == ST_OUTPUT);
         #600;i_res_rdy <= 1;
@@ -935,6 +956,17 @@ task zzt_testcase;
         wait(o_rdy);
         zzt_testcase_r <= 0;
         #40;
+		
+		
+		// QID4 Check whether the output o_qid is equal to the exp_qid we sent initially.
+		if (o_qid !== exp_qid) begin
+            $display("ERROR [Test %03d]: QID Unstable! Inputs changed to %h, Output followed it to %h. Expected: %h", 
+                     index, noise_qid, o_qid, exp_qid);
+            error = error + 1;
+        end else begin
+             $display("PASS [Test %03d]: QID Stable. (Ignored noise %h, kept %h)", index, noise_qid, o_qid);
+        end
+		
         case ({i_size,i_signed})
             {B8  ,I}: begin if(zzt_testcase_cnt_max>=zzt_testcase_cnt___8_max) zzt_testcase_cnt___8_max <= zzt_testcase_cnt_max; end
             {B16 ,I}: begin if(zzt_testcase_cnt_max>=zzt_testcase_cnt__16_max) zzt_testcase_cnt__16_max <= zzt_testcase_cnt_max; end

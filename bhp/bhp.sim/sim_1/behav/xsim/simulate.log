@@ -1,0 +1,144 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+--------------------------------------------------
+xmem[0]   = 4405413365422220568237000915304400287543352561343753572223565637763382054477
+xmem[1]   = 6841050157441205931338425772670186416893100371404196137869071597866951453931
+xmem[682] = 2413490758094355562963477483797761988684020051603859628159714316734641851048
+xmem[683] = 4137491393350453279930903109512915560743329119262204695701606587362079083236
+--------------------------------------------------
+ymem[0]   = 2204662042624091946242497476583881364078081899192253257555670568450074315326
+ymem[1]   = 2488833392181327335603686618403172217940793313723281563986810694488817494221
+ymem[682] = 881941891211874364329540434964732710127385696406863443970263072392812199239
+ymem[683] = 6817241521354139194318936399891701764102461992575530180866140021632826787814
+--------------------------------------------------
+Starting bhp_with_lossy etc testbench...
+INFO: Injecting Noise QID: ff (Expected kept: 00)
+PASS [Test 000]: QID Stable. (Ignored noise ff, kept 00)
+Test case 000 :I8   : dui
+Starting bhp_with_lossy all lvs testbench...
+INFO: Injecting Noise QID: fe (Expected kept: 01)
+PASS [Test 001]: QID Stable. (Ignored noise fe, kept 01)
+Test case 001 :I8   : dui
+INFO: Injecting Noise QID: fd (Expected kept: 02)
+PASS [Test 002]: QID Stable. (Ignored noise fd, kept 02)
+Test case 002 :I8   : dui
+INFO: Injecting Noise QID: fc (Expected kept: 03)
+PASS [Test 003]: QID Stable. (Ignored noise fc, kept 03)
+Test case 003 :I8   : dui
+INFO: Injecting Noise QID: fb (Expected kept: 04)
+PASS [Test 004]: QID Stable. (Ignored noise fb, kept 04)
+Test case 004 :I8   : dui
+INFO: Injecting Noise QID: fa (Expected kept: 05)
+PASS [Test 005]: QID Stable. (Ignored noise fa, kept 05)
+Test case 005 :I8   : dui
+PASS: File A has two extra lines and all others match.
+INFO: Injecting Noise QID: f9 (Expected kept: 06)
+PASS [Test 006]: QID Stable. (Ignored noise f9, kept 06)
+Test case 006 :U16  : dui
+PASS: File A has two extra lines and all others match.
+INFO: Injecting Noise QID: f8 (Expected kept: 07)
+PASS [Test 007]: QID Stable. (Ignored noise f8, kept 07)
+Test case 007 :U32  : dui
+PASS: File A has two extra lines and all others match.
+INFO: Injecting Noise QID: f7 (Expected kept: 08)
+PASS [Test 008]: QID Stable. (Ignored noise f7, kept 08)
+Test case 008 :I64  : dui
+PASS: File A has two extra lines and all others match.
+INFO: Injecting Noise QID: f6 (Expected kept: 09)
+PASS [Test 009]: QID Stable. (Ignored noise f6, kept 09)
+Test case 009 :U128 : dui
+PASS: File A has two extra lines and all others match.
+Starting bhp_with_lossy rust testbench...
+INFO: Injecting Noise QID: f5 (Expected kept: 0a)
+PASS [Test 010]: QID Stable. (Ignored noise f5, kept 0a)
+Test case 010 :I8   : dui
+INFO: Injecting Noise QID: f4 (Expected kept: 0b)
+PASS [Test 011]: QID Stable. (Ignored noise f4, kept 0b)
+Test case 011 :I8   : dui
+INFO: Injecting Noise QID: f3 (Expected kept: 0c)
+PASS [Test 012]: QID Stable. (Ignored noise f3, kept 0c)
+Test case 012 :I8   : dui
+INFO: Injecting Noise QID: f2 (Expected kept: 0d)
+PASS [Test 013]: QID Stable. (Ignored noise f2, kept 0d)
+Test case 013 :I8   : dui
+INFO: Injecting Noise QID: f1 (Expected kept: 0e)
+PASS [Test 014]: QID Stable. (Ignored noise f1, kept 0e)
+Test case 014 :I8   : dui
+INFO: Injecting Noise QID: f0 (Expected kept: 0f)
+PASS [Test 015]: QID Stable. (Ignored noise f0, kept 0f)
+Test case 015 :U16  : dui
+INFO: Injecting Noise QID: ef (Expected kept: 10)
+PASS [Test 016]: QID Stable. (Ignored noise ef, kept 10)
+Test case 016 :U32  : dui
+INFO: Injecting Noise QID: ee (Expected kept: 11)
+PASS [Test 017]: QID Stable. (Ignored noise ee, kept 11)
+Test case 017 :I64  : dui
+INFO: Injecting Noise QID: ed (Expected kept: 12)
+PASS [Test 018]: QID Stable. (Ignored noise ed, kept 12)
+Test case 018 :U128 : dui
+Starting bhp_with_lossy res testbench...
+INFO: Injecting Noise QID: ec (Expected kept: 13)
+PASS [Test 019]: QID Stable. (Ignored noise ec, kept 13)
+Test case 019 :I8   : dui
+INFO: Injecting Noise QID: eb (Expected kept: 14)
+PASS [Test 020]: QID Stable. (Ignored noise eb, kept 14)
+Test case 020 :U8   : dui
+INFO: Injecting Noise QID: ea (Expected kept: 15)
+PASS [Test 021]: QID Stable. (Ignored noise ea, kept 15)
+Test case 021 :I16  : dui
+INFO: Injecting Noise QID: e9 (Expected kept: 16)
+PASS [Test 022]: QID Stable. (Ignored noise e9, kept 16)
+Test case 022 :U16  : dui
+INFO: Injecting Noise QID: e8 (Expected kept: 17)
+PASS [Test 023]: QID Stable. (Ignored noise e8, kept 17)
+Test case 023 :U32  : dui
+INFO: Injecting Noise QID: e7 (Expected kept: 18)
+PASS [Test 024]: QID Stable. (Ignored noise e7, kept 18)
+Test case 024 :I32  : dui
+INFO: Injecting Noise QID: e6 (Expected kept: 19)
+PASS [Test 025]: QID Stable. (Ignored noise e6, kept 19)
+Test case 025 :U32  : dui
+INFO: Injecting Noise QID: e5 (Expected kept: 1a)
+PASS [Test 026]: QID Stable. (Ignored noise e5, kept 1a)
+Test case 026 :I64  : dui
+INFO: Injecting Noise QID: e4 (Expected kept: 1b)
+PASS [Test 027]: QID Stable. (Ignored noise e4, kept 1b)
+Test case 027 :I128 : dui
+INFO: Injecting Noise QID: e3 (Expected kept: 1c)
+PASS [Test 028]: QID Stable. (Ignored noise e3, kept 1c)
+Test case 028 :U128 : dui
+INFO: Injecting Noise QID: e2 (Expected kept: 1d)
+PASS [Test 029]: QID Stable. (Ignored noise e2, kept 1d)
+Test case 029 :I128 : dui
+INFO: Injecting Noise QID: e1 (Expected kept: 1e)
+PASS [Test 030]: QID Stable. (Ignored noise e1, kept 1e)
+Test case 030 :I128 : dui
+Starting bhp_with_lossy bhp res testbench...
+INFO: Injecting Noise QID: e0 (Expected kept: 1f)
+PASS [Test 031]: QID Stable. (Ignored noise e0, kept 1f)
+Test case 031 :U64  : dui
+INFO: Injecting Noise QID: df (Expected kept: 20)
+PASS [Test 032]: QID Stable. (Ignored noise df, kept 20)
+Test case 032 :U64  : dui
+INFO: Injecting Noise QID: de (Expected kept: 21)
+PASS [Test 033]: QID Stable. (Ignored noise de, kept 21)
+Test case 033 :U64  : dui
+INFO: Injecting Noise QID: dd (Expected kept: 22)
+PASS [Test 034]: QID Stable. (Ignored noise dd, kept 22)
+Test case 034 :U64  : dui
+Starting bhp_with_lossy bhp lots res testbench...
+INFO: Injecting Noise QID: dc (Expected kept: 23)
+PASS [Test 035]: QID Stable. (Ignored noise dc, kept 23)
+Test case 035 :U64  : dui
+Starting bhp_with_lossy bhp lots res testbench...
+INFO: Injecting Noise QID: db (Expected kept: 24)
+PASS [Test 036]: QID Stable. (Ignored noise db, kept 24)
+Test case 036 :U8   : dui
+Starting bhp_with_lossy bhp lots res testbench: index:0037,error:0000.
+fifo: data_count_max:       4
+IU8   :00030153
+IU16  :00031627
+IU32  :00036217
+IU64  :00043691
+IU128 :00061729
+$finish called at time : 14510705 ns : File "D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v" Line 470
