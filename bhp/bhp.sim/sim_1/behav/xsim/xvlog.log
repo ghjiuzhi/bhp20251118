@@ -1,0 +1,73 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/KOM_Bar_MM_15/CSA_4T1_15cc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CSA_4T1_15cc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/KOM_Bar_MM_15/CSA_5T1_15cc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CSA_5T1_15cc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/KOM_Bar_MM_15/CarrySaveAdder_15cc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CarrySaveAdder_15cc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/KOM_Bar_MM_15/CarrySaveAdder_Complement_15cc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CarrySaveAdder_Complement_15cc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/KOM_Bar_MM_15/Full_Adder_15cc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Full_Adder_15cc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/KOM_Bar_MM_15/KOM_Bar_MM_15cc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KOM_Bar_MM_15cc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/KOM_Bar_MM_15/Shifer_adder_15cc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Shifer_adder_15cc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/KOM_Bar_MM_15/Shifer_adder_MPRI_15cc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Shifer_adder_MPRI_15cc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/bhp_256.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bhp_256
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/bhp_256_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bhp_256_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/bhp_adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bhp_adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/bhp_field_add_sub_gfp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bhp_field_add_sub_gfp
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/bhp_with_lossy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bhp_with_lossy
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/cast_lossy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cast_lossy
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/cast_lossy_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cast_lossy_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/coordinate_transformation.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module coordinate_transformation
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/edwards_add.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module edwards_add
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/edwards_add_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module edwards_add_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/field_inv_gfp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module field_inv_gfp
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/from32to256.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module from32to256
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/fromrxto256.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fromrxto256
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/KOM_Bar_MM_15/karasuba_mul_15cc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module karasuba_mul_15cc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/KOM_Bar_MM_15/kom_pe_15cc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module kom_pe_15cc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/montgomery_add.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module montgomery_add
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/montgomery_add_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module montgomery_add_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/montgomery_add_lookup.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module montgomery_add_lookup
+INFO: [VRFC 10-2458] undeclared symbol pm_tready_o, assumed default net type wire [D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/montgomery_add_lookup.v:574]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/subtractor.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module subtractor
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sources_1/imports/sources_1/sync_fifo_ptr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sync_fifo_ptr
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bhp_with_lossy_tb
+WARNING: [VRFC 10-2096] empty statement in sequential block [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:180]
+WARNING: [VRFC 10-3380] identifier 'frame_lvs_cnt' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:199]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:202]
+WARNING: [VRFC 10-3380] identifier 'frame_lvs_cnt_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:203]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt___8_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:205]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt__16_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:206]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt__32_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:207]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt__64_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:208]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt_128_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:209]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt___8_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:465]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt__16_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:466]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt__32_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:467]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt__64_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:468]
+WARNING: [VRFC 10-3380] identifier 'zzt_testcase_cnt_128_max' is used before its declaration [D:/fpga/bhp20251117/bhp/bhp.srcs/sim_1/imports/sim_1/bhp_with_lossy_tb.v:469]

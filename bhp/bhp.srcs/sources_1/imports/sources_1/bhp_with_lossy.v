@@ -11,7 +11,9 @@
 // `define VIVADO_IP
 `define REG_IP
 
-module bhp_with_lossy(
+module bhp_with_lossy #(
+    parameter QID_WIDTH = 8
+)(
     input  wire                 clk,
     input  wire                 rstn,
 
@@ -47,7 +49,11 @@ module bhp_with_lossy(
 
 
     output reg    [4:0] cur_state,      //todo // to delete //just for test
-    output wire   [2:0] ft_data_count   //todo // to delete //just for test
+    output wire   [2:0] ft_data_count,   //todo // to delete //just for test
+    
+     //QID Interface
+    input wire [QID_WIDTH-1:0]  i_qid,
+    output reg [QID_WIDTH-1:0]  o_qid
     );
 
 // wire         i_vld      ;
@@ -261,11 +267,21 @@ wire [255:0]KBM_b    ;
 
 wire         i_res_rdy;
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // INPUT
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Add QID Latching Logic
+always @(posedge clk or negedge rstn) begin
+    if(~rstn) begin
+    o_qid <= {QID_WIDTH{1'b0}};
+    end else begin
+        if (i_vld && o_rdy) begin
+            o_qid <= i_qid;
+        end
+    end
+end
+    
 assign i_data = i_a;
 always @(posedge clk or negedge rstn) begin
     if(~rstn) begin
@@ -1050,7 +1066,7 @@ fifo_256_temp u_fifo_256_temp (
   .dout         (ft_dout           ),       // output wire [255 : 0] ft_dout      ;
   .full         (ft_full           ),       // output wire           ft_full      ;
   .empty        (ft_empty          ),       // output wire           ft_empty     ;
-  .data_count   (ft_data_count     )        // output wire [8 : 0]   ft_data_count;  // 位宽不准确
+  .data_count   (ft_data_count     )        // output wire [8 : 0]   ft_data_count;  // 位宽不准�?
 );
 `elsif REG_IP
 sync_fifo_ptr
@@ -1095,7 +1111,7 @@ fifo_256_temp u_fifo_256_temp (
   .dout         (test_dout           ),       // output wire [255 : 0] ft_dout      ;
   .full         (test_full           ),       // output wire           ft_full      ;
   .empty        (test_empty          ),       // output wire           ft_empty     ;
-  .data_count   (test_data_count     )        // output wire [8 : 0]   ft_data_count;  // 位宽不准确
+  .data_count   (test_data_count     )        // output wire [8 : 0]   ft_data_count;  // 位宽不准�?
 );
 `endif
 

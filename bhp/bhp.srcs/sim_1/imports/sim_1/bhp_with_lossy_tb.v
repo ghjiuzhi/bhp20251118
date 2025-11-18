@@ -7,6 +7,9 @@
 
 module bhp_with_lossy_tb;
 
+    //add QID_WIDTH
+    localparam QID_WIDTH = 8;
+	
     // Inputs
     reg clk;
     reg rstn;
@@ -18,6 +21,9 @@ module bhp_with_lossy_tb;
 
     reg i_lvs_rdy;
     reg i_res_rdy;
+	
+	
+	reg  [QID_WIDTH-1:0] i_qid;
 
     // Outputs
     wire o_rdy;
@@ -33,6 +39,8 @@ module bhp_with_lossy_tb;
     wire [127:0] o_res       ;
     wire [  2:0] o_size      ;
     wire         o_signed    ;
+	
+	wire [QID_WIDTH-1:0] o_qid;
 
     reg  [255:0] cur_res;
     reg  [255:0] exp_rslt;
@@ -49,6 +57,8 @@ module bhp_with_lossy_tb;
     wire [32 -1:0]signed_res_32 ;assign signed_res_32  = cur_res[32 -1:0];
     wire [64 -1:0]signed_res_64 ;assign signed_res_64  = cur_res[64 -1:0];
     wire [128-1:0]signed_res_128;assign signed_res_128 = cur_res[128-1:0];
+
+
 
     localparam ST_IDLE    = 1;
     localparam ST_BHP     = 2;
@@ -117,7 +127,9 @@ module bhp_with_lossy_tb;
     reg zzt_testcase_pause1_r;
 
     // Instantiate the Unit Under Test (UUT)
-    bhp_with_lossy uut (
+    bhp_with_lossy #(
+        .QID_WIDTH (QID_WIDTH)   // <--- 关键：在这里传入参数
+    ) uut (
         .clk(clk),
         .rstn(rstn),
 
@@ -151,6 +163,11 @@ module bhp_with_lossy_tb;
         .bc_din     (frame_data_out     ),
         .bc_in_valid(frame_valid_out    ),
 
+        // add QID 
+        .i_qid(i_qid), 
+        .o_qid(o_qid),
+		
+		
         .cur_state  (cur_state  ),
         .ft_data_count(data_count)
     );
@@ -191,6 +208,8 @@ module bhp_with_lossy_tb;
         zzt_testcase_cnt__64_max <= 0;
         zzt_testcase_cnt_128_max <= 0;
         rstn <= 0;
+		
+		i_qid <= 0;
         #100;// Wait 100 ns for global reset
         rstn <= 1;
         #10000;
@@ -215,7 +234,7 @@ module bhp_with_lossy_tb;
     $display("Starting bhp_with_lossy pause lvs testbench...");
         reverse  <=  0;
         temp_ready = 1000;
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B8_I_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B8_I_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         // if (fd_lvs == 0) begin
         //     $display("Error: Failed to open file!");
         // end else begin
@@ -227,48 +246,48 @@ module bhp_with_lossy_tb;
         #10;zzt_testcase_pause(B8,I,zzt_data,0,zzt_out,temp_ready);
         // $display("$fclose(fd_lvs);...");
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B8_I_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B8_I_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B8_I_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B8_I_lvs_right.txt";
         check_file_diff(pathA, pathB);
 
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B16_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B16_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         lvs_test <=  2;
         zzt_data <=  {PAD16__0,16'b1110110100111010};
         zzt_out  <=  256'd55547;
         #10;zzt_testcase_pause(B16,U,zzt_data,0,zzt_out,temp_ready);
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B16_U_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B16_U_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B16_U_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B16_U_lvs_right.txt";
         check_file_diff(pathA, pathB);
 
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B32_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B32_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         lvs_test <=  3;
         zzt_data <=  {PAD32__0,32'b11101101001110101101101010100000};
         zzt_out  <=  256'd464081867;
         #10;zzt_testcase_pause(B32,U,zzt_data,0,zzt_out,temp_ready);
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B32_U_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B32_U_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B32_U_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B32_U_lvs_right.txt";
         check_file_diff(pathA, pathB);
 
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B64_I_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B64_I_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         lvs_test <=  4;
         zzt_data <=  {PAD64__0,64'b1000011110001101111000001111110000001101011110111011111110100110};
         zzt_out  <= -256'd3757354933473194135;
         #10;zzt_testcase_pause(B64,I,zzt_data,0,zzt_out,temp_ready);
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B64_I_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B64_I_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B64_I_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B64_I_lvs_right.txt";
         check_file_diff(pathA, pathB);
 
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B128_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B128_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         lvs_test <=  5;
         zzt_data <=  {128'b00001001101100010100111001110011010110010101000110010011000011010101011111011010000011100100111100110100100010101100000100001001};
         zzt_out  <=  256'd240735502027167243905959988592635201365;
         #10;zzt_testcase_pause(B128,U,zzt_data,0,zzt_out,temp_ready);
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B128_U_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B128_U_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B128_U_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B128_U_lvs_right.txt";
         check_file_diff(pathA, pathB);
         lvs_test <= 0;
 `endif
@@ -276,7 +295,7 @@ module bhp_with_lossy_tb;
 
     $display("Starting bhp_with_lossy all lvs testbench...");
         reverse  <=  0;
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B8_I_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B8_I_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         lvs_test <=  0;
         zzt_data <=  {PAD8___0,8'b01101000};
         zzt_out  <= -256'd119;
@@ -285,58 +304,58 @@ module bhp_with_lossy_tb;
         #10;zzt_testcase(B8,I,zzt_data,0,zzt_out);
         #10;zzt_testcase(B8,I,zzt_data,0,zzt_out);
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B8_I_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B8_I_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B8_I_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B8_I_lvs_right.txt";
         // check_file_diff(pathA, pathB);
 
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B8_I_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B8_I_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         lvs_test <=  1;
         zzt_data <=  {PAD8___0,8'b01101000};
         zzt_out  <= -256'd119;
         #10;zzt_testcase(B8,I,zzt_data,0,zzt_out);
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B8_I_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B8_I_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B8_I_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B8_I_lvs_right.txt";
         check_file_diff(pathA, pathB);
 
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B16_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B16_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         lvs_test <=  2;
         zzt_data <=  {PAD16__0,16'b1110110100111010};
         zzt_out  <=  256'd55547;
         #10;zzt_testcase(B16,U,zzt_data,0,zzt_out);
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B16_U_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B16_U_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B16_U_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B16_U_lvs_right.txt";
         check_file_diff(pathA, pathB);
 
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B32_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B32_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         lvs_test <=  3;
         zzt_data <=  {PAD32__0,32'b11101101001110101101101010100000};
         zzt_out  <=  256'd464081867;
         #10;zzt_testcase(B32,U,zzt_data,0,zzt_out);
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B32_U_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B32_U_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B32_U_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B32_U_lvs_right.txt";
         check_file_diff(pathA, pathB);
 
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B64_I_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B64_I_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         lvs_test <=  4;
         zzt_data <=  {PAD64__0,64'b1000011110001101111000001111110000001101011110111011111110100110};
         zzt_out  <= -256'd3757354933473194135;
         #10;zzt_testcase(B64,I,zzt_data,0,zzt_out);
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B64_I_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B64_I_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B64_I_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B64_I_lvs_right.txt";
         check_file_diff(pathA, pathB);
 
-        fd_lvs = $fopen("E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B128_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
+        fd_lvs = $fopen("D:\\fpga\\bhp20251117\\sim_1\\B128_U_lvs.txt", "w"); // "w" 覆盖写；用 "a" 追加写
         lvs_test <=  5;
         zzt_data <=  {128'b00001001101100010100111001110011010110010101000110010011000011010101011111011010000011100100111100110100100010101100000100001001};
         zzt_out  <=  256'd240735502027167243905959988592635201365;
         #10;zzt_testcase(B128,U,zzt_data,0,zzt_out);
         $fclose(fd_lvs);
-        pathA = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B128_U_lvs.txt";
-        pathB = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\B128_U_lvs_right.txt";
+        pathA = "D:\\fpga\\bhp20251117\\sim_1\\B128_U_lvs.txt";
+        pathB = "D:\\fpga\\bhp20251117\\sim_1\\B128_U_lvs_right.txt";
         check_file_diff(pathA, pathB);
         lvs_test <= 0;
 
@@ -483,8 +502,8 @@ module bhp_with_lossy_tb;
     // i_sp_i =  10'd64                                                                           ;
 
     FRAME_i_start = i_sp_i;
-    XDATA_FILE = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\X_171_x1x2x3x4.txt";
-    YDATA_FILE = "E:\\project\\BHP256\\p6\\p6\\p6.srcs\\sim_1\\Y_171_x1x2x3x4.txt";
+    XDATA_FILE = "D:\\fpga\\bhp20251117\\sim_1\\X_171_x1x2x3x4.txt";
+    YDATA_FILE = "D:\\fpga\\bhp20251117\\sim_1\\Y_171_x1x2x3x4.txt";
     // 调用加载任务
     load_xmem_from_decimal_txt;
     load_ymem_from_decimal_txt;
