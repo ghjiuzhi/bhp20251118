@@ -647,6 +647,7 @@ always @(posedge clk or negedge rstn) begin
     end
 end
 
+/*
     KOM_Bar_MM_15cc u_KOM_Bar_MM_15cc
     (
         .clk            (clk),
@@ -658,7 +659,38 @@ end
         .o_rslt         (top_mul0_rslt[256-4:0])
     );
     assign top_mul0_rslt[256-1:256-3] = 3'b0;
+*/
+// -------------------------------------------------------------------------
+// Revised to fullpipe fp_KOM_Bar_MM
+// -------------------------------------------------------------------------
+fp_KOM_Bar_MM #(
+        .MUL_WIDTH  ( 256 ),
+        .CID_WIDTH  ( 6   ), // Default value is sufficient, Stream ID is unused
+        .PIPE_DEPTH ( 11  )  // Use default pipeline depth
+    ) u_fp_KOM_Bar_MM (
+        .clk        ( clk  ),
+        .rstn       ( rstn ),
+        
+        // Data input
+        .i_vld      ( KBM_ab_v ), 
+        .i_a        ( KBM_a    ),
+        .i_b        ( KBM_b    ),
+        
+        // New port i_cid: Context ID is not involved in upper logic, connected to 0
+        .i_cid      ( 6'd0     ), 
 
+        // Result output
+        .o_rslt_vld ( top_mul0_rslt_valid ),
+        
+        // Result data: Output width is [252:0] (i.e., 253 bits), consistent with the old module
+        .o_rslt     ( top_mul0_rslt[256-4:0] ),
+        
+        // New port o_cid: Output Stream ID, logic does not need it, leave unconnected
+        .o_cid      (          )
+    );
+
+    // Retain this zero-padding line, as o_rslt is only 253 bits wide
+    assign top_mul0_rslt[256-1:256-3] = 3'b0;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // field_inv_gfp

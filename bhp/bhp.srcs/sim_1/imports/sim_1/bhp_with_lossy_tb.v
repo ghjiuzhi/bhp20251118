@@ -934,7 +934,7 @@ task zzt_testcase;
 		//QID3 make noise 
 		noise_qid = ~exp_qid; 
         i_qid <= noise_qid;  
-		$display("INFO: Injecting Noise QID: %h (Expected kept: %h)", noise_qid, exp_qid);
+		//$display("INFO: Injecting Noise QID: %h (Expected kept: %h)", noise_qid, exp_qid);
 		
 		
         i_lvs_rdy <= 1;
